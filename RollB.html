@@ -367,11 +367,16 @@
         {
             var uebergabe = xmlhttp.responseText;
             var fields = JSON.parse(uebergabe);
+            showData(fields);
             //anzeigenDerThemen(themennamen);
-            alert(fields);
+            //alert(fields);
         }
     }
     xmlhttp.open("GET","phpscripts\\loadCase.php",true);
     xmlhttp.send();
+
+    function showData(data){
+        document.getElementById('SDName').innerHTML = data.zuname;
+    }
 </script>
 </html>

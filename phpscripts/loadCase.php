@@ -116,10 +116,10 @@ try{
         $cases = Array();
 
         $db = new mysqli('epa.htl5.org', 'epa', 'epateam', 'dunst_epa');
-        $sql = "SELECT f_zuname, f_vorname, f_titel, f_messungAF1 FROM f_fall WHERE f_id = '$caseID' ;";
+        $sql = "SELECT * FROM f_fall WHERE f_id = '$caseID' ;";
         $logfile = fopen("logfile.txt", "a");
         $date = date("d.m.Y H:i:s");
-        fwrite($logfile, $date . "     SQL: " ."SELECT f_zuname, f_vorname, f_titel, f_messungAF1 FROM f_fall WHERE f_id = '$caseID' ;". "\n");
+        fwrite($logfile, $date . "     SQL: " ." SELECT * WHERE f_id = '$caseID' ;". "\n");
         fclose($logfile);
 
 
@@ -141,6 +141,7 @@ try{
                 $b->nachname = $row['f_vorname'];
                 $b->titel = $row['f_titel'];
                 $b->messungaf1 = $row['f_messungAF1'];
+                $b->strasse = $row['f_strasse'];
                 $faelle[] = $b;
             }
         }
