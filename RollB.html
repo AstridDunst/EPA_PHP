@@ -376,7 +376,11 @@
     xmlhttp.send();
 
     function showData(data){
-        document.getElementById('SDName').innerHTML = data.zuname;
+        if (data.zuname != null) {
+            document.getElementById('SDName').innerHTML = data.zuname;
+        } else {
+            document.getElementById('SDName').innerHTML = "Keine Angabe";
+        }
     }
 </script>
 </html>
