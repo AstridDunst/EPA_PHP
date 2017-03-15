@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>EPA</title>
+</head>
+<body>
+<ul class="menu">
+    <li><a href="RollC.html">Abgeschlossene Fälle</a></li>
+    <li><a href="RollA.html">Aktuelle Fälle</a></li>
+    <li><a href="RollE.html">Benutzerverwaltung</a></li>
+    <li><a href="phpscripts/logout.php">logout</a></li>
+</ul>
+<h1>Benutzerverwaltung</h1>
+<table id="showUserTable">
+    <tr>
+        <th>Zuname</th>
+        <th>Vorname</th>
+        <th>Benutzername</th>
+        <th>Rechte</th>
+        <th></th>
+
+    </tr>
+</table>
+
+<div>
+
+    <table id="newUserTable">
+        <h2>Benutzer hinzufügen</h2>
+        <tr>
+            <td>Vorname</td>
+            <td><input type="text" id="vorname" name="vorname"/></td>
+        </tr>
+        <tr>
+            <td>Nachname</td>
+            <td><input type="text" id="nachname" name="nachname"/></td>
+        </tr>
+        <tr>
+            <td>Benutzername</td>
+            <td><input type="text" id="benutzername" name="benutzername"/></td>
+        </tr>
+        <tr>
+            <td>Passwort</td>
+            <td><input type="password" id="passwort" name="passwort"/></td>
+        </tr>
+        <tr>
+            <td>Passwort wiederhohlen</td>
+            <td><input type="password" id="passwortwiederhohlen" name="passwortwiederhohlen"/></td>
+        </tr>
+        <tr>
+            <td>Administratorrechte</td>
+            <td><input type="checkbox" id="adminrights" name="adminrights"/></td>
+        </tr>
+    </table>
+    <button id="newUser" onclick="addNewUser()">Benutzer hinzufügen</button>
+
+
+</div>
+<script>
+
+    tableloadUser();
+    function addNewUser(){
+
+        //TODO: Check if correct
+        var prename = document.getElementById("vorname").value.toString();
+        var lastname = document.getElementById('nachname').value.toString();
+        var userName = document.getElementById('benutzername').value.toString();
+        var password = document.getElementById('passwort').value.toString();
+        var passwordwdh = document.getElementById('passwortwiederhohlen').value.toString();
+        var admin = document.getElementById('adminrights').value.toString();
+        var adminKZ;
+
+
+        if (password === passwordwdh){
+            if (admin == "on"){
+                adminKZ = "A";
+            } else {
+                adminKZ = "B";
+            }
+            if (window.XMLHttpRequest)
+            {
+                xmlhttp=new XMLHttpRequest();
+            }
+            xmlhttp.onreadystatechange=function()
+            {
+                if (xmlhttp.readyState==4 && xmlhttp.status==200)
+                {
+                    var getResponse = xmlhttp.responseText;
+                    window.location.reload();
+                    //alert(getResponse);
+                    //var fields = JSON.parse(uebergabe);
+                    // window.location.replace("RollB.html");
+                }
+            }
+            xmlhttp.open("POST","phpscripts\\addUser.php",true);
+            xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            xmlhttp.send("prename="+prename+"&lastname="+lastname+"&userName="+userName+"&password="+password+"&adminKZ="+adminKZ);
+        } else {
+            //TODO: Passwörter nicht gleich
+        }
+    }
+    function tableloadUser() {
+        if (window.XMLHttpRequest) {
+            xmlhttp = new XMLHttpRequest();
+        }
+        xmlhttp.onreadystatechange = function () {
+            if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                var uebergabe = xmlhttp.responseText;
+
+
+                var fields = JSON.parse(uebergabe);
+
+                //anzeigenDerThemen(themennamen);
+                //alert(fields.toString());
+                showFields(fields);
+            }
+        }
+        xmlhttp.open("GET", "phpscripts\\loadUsersOverview.php", true);
+        xmlhttp.send();
+    }
+    function showFields(Data) {
+
+        for (i = 0; i < Data.length; i++) {
+            var tr = document.createElement('tr');
+            //tr.id = "tr" + Data[i].toString();
+
+            var tdBeginTime = document.createElement('td');
+            tdBeginTime.textContent = Data[i].zuname.toString();
+
+            var tdrecord = document.createElement('td');
+            tdrecord.textContent = Data[i].vorname.toString();
+
+            var tdDiagnose = document.createElement('td');
+            tdDiagnose.textContent = Data[i].username.toString();
+
+            var tdRTW = document.createElement('td');
+            //Admin Rechte
+            tdRTW.textContent = Data[i].admin.toString();
+
+
+            if (i === 0) {
+                document.getElementById('showUserTable').appendChild(tr);
+            } else {
+                //document.getElementById("tr"+data[i-1].toString()).appendChild(tr);
+                document.getElementById('showUserTable').appendChild(tr);
+            }
+
+
+            document.getElementById('showUserTable').appendChild(tdBeginTime);
+            document.getElementById('showUserTable').appendChild(tdrecord);
+            document.getElementById('showUserTable').appendChild(tdDiagnose);
+            document.getElementById('showUserTable').appendChild(tdRTW);
+        }
+
+    }
+</script>
+</body>
+</html>
