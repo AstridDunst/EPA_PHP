@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="aed2f45b-f8b7-4b80-b79e-cfff16e5da71" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RollB.html" afterPath="$PROJECT_DIR$/RollB.html" />
     </list>
     <ignored path="epa_zugriff.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -271,7 +270,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1483974930597</updated>
-      <workItem from="1489588402368" duration="506000" />
+      <workItem from="1489588402368" duration="552000" />
     </task>
     <task id="LOCAL-00001" summary="Astrid">
       <created>1489587241830</created>
@@ -280,11 +279,18 @@
       <option name="project" value="LOCAL" />
       <updated>1489587241830</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Astrid">
+      <created>1489588920216</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1489588920216</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="506000" />
+    <option name="totallyTimeSpent" value="552000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="0" width="1928" height="1048" extended-state="0" />
@@ -299,7 +305,7 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.35016465" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.35016465" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -348,14 +354,6 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/RollB.html</url>
-          <line>380</line>
-          <properties />
-          <option name="timeStamp" value="62" />
-        </line-breakpoint>
-      </breakpoints>
       <option name="time" value="63" />
     </breakpoint-manager>
     <watches-manager />
