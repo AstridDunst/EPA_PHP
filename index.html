@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>EPA</title>
+</head>
+<body>
+<h1 style="font-family: 'Segoe UI'; font-size: 10em;">EPA</h1>
+<p style="font-family: 'Segoe UI'; font-size: 7em;">Not finished yet!</p>
+
+<div id="login">Anmelden
+    <table>
+        <tr>
+            <td>Benutzername</td>
+            <td><input type="text" id="username" name="username"/>
+            </td>
+        </tr>
+        <tr>
+            <td>Passwort</td>
+            <td><input type="password" id="password" name="password"/>
+                <button id="bt_login" onclick="anmelden_click()">Anmelden</button></td>
+
+        </tr>
+
+    </table>
+</div>
+<script>
+    //alert("here");
+    function anmelden_click() {
+
+        var benutzername = document.getElementById("username").value.toString();
+        var password = document.getElementById("password").value.toString();
+        var test = "";
+
+        //TODO: Checken ob LogIn Correct
+        var request = new XMLHttpRequest();
+
+        request.onreadystatechange = function() {
+            if (request.readyState==4 && request.status==200){
+                if (request.responseText.toString() === "RollA.html"){
+                    window.location.replace("RollA.html");
+                }
+               //console.log("HTML RESPONSE: "+request.responseText.toString());
+
+            }
+        }
+        request.open("POST", "phpscripts\\login.php", true);
+        request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        request.send("username=" + benutzername + "&password="+password);
+
+    }
+
+</script>
+</body>
+</html>

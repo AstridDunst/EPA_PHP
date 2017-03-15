@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>EPA</title>
+</head>
+<body>
+<ul class="menu">
+    <li><a href="RollC.html">Abgeschlossene Fälle</a></li>
+    <li><a href="RollA.html">Aktuelle Fälle</a></li>
+    <li><a href="RollE.html">Benutzerverwaltung</a></li>
+    <li><a href="phpscripts/logout.php">logout</a></li>
+</ul>
+<div id="header">
+    <h1>Fall</h1>
+    <div>
+        <h2>Stammdaten</h2>
+        <table>
+            <tr>
+                <td class= "UE">Name</td><td id= "SDName"> ....</td>
+            </tr>
+            <tr>
+                <td classe = "UE">Vorname</td><td id= "SDVorname"> ....</td>
+            </tr>
+            <tr>
+                <td class= "UE">Titel</td><td id= "SDTitel"> ....</td>
+            </tr>
+            <tr>
+                <td class= "UE">Straße</td><td id= "SDStrasse"> ....</td>
+            </tr>
+            <tr>
+                <td class= "UE">Postleitzahhl</td><td id= "SDPLZ"> ....</td>
+            </tr>
+            <tr>
+                <td class= "UE">Ort</td><td id= "SDOrt"> ....</td>
+            </tr>
+            <tr>
+                <td class= "UE">Geburtsdatum</td><td id= "SDGebdat"> ....</td>
+            </tr>
+            <tr>
+                <td class= "UE">Risikofaktoren</td><td id= "SDRF"> ....</td>
+            </tr>
+        </table>
+    </div>
+
+    <!--Transportbezogen Daten-->
+    <div>
+        <h2>Fallbezogene Daten</h2>
+        <table>
+            <tr>
+                <td class= "UE">Transportdatum</td><td id= "TDDatum"> ....</td>
+            </tr>
+            <tr>
+                <td class= "UE">Beginnzeit</td><td id= "TDBeginnzeit"> ....</td>
+            </tr>
+            <tr>
+                <td class= "UE">Endzeit</td><td id= "TDEndzeit"> ....</td>
+            </tr>
+            <tr>
+                <td class= "UE">Vorgeschehen</td><td id= "TDVorgeschehen"> ....</td>
+            </tr>
+            <tr>
+                <td class= "UE">Patientengeschichte</td><td id= "TDPatGeschichte"> ....</td>
+            </tr>
+            <tr>
+                <td class= "UE">Verdachtsdiagnose</td><td id= "TDVerdachtsdiagnose"> ....</td>
+            </tr>
+        </table>
+    </div>
+
+    <!--Vitaldaten-->
+    <div>
+        <h2>Vitaldaten</h2>
+        <!--Patientenlagebeurteilung-->
+        <h3>Patientenlagebeurteilung</h3>
+        <table>
+            <tr>
+                <td class= "UE">Orientiert</td>
+                <td><input type= "checkbox" disabled readonly id = "VDOrientiert"/></td>
+            </tr>
+            <tr>
+                <td class= "UE">Erregungszustand</td>
+                <td><input type= "checkbox" disabled readonly id = "VDErregung"/></td>
+            </tr>
+            <tr>
+                <td class= "UE">Bewusstlos</td>
+                <td><input type= "checkbox" disabled readonly id = "VDBewusstlos"/></td>
+            </tr>
+            <tr>
+                <td class= "UE">Todeszeichen</td>
+                <td><input type= "checkbox" disabled readonly id = "VDTodeszeichen"/></td>
+            </tr>
+            <tr>
+                <td class= "UE">Gehend</td>
+                <td><input type= "checkbox" disabled readonly id = "VDGehend"/></td>
+            </tr>
+            <tr>
+                <td class= "UE">Sitzend</td>
+                <td><input type= "checkbox" disabled readonly id = "VDSitzend"/></td>
+            </tr>
+            <tr>
+                <td class= "UE">Liegend</td>
+                <td><input type= "checkbox" disabled readonly id = "VDLiegend"/></td>
+            </tr>
+            <tr>
+                <td class= "UE">Sonstiges</td><td id = "VDSonstiges">...</td>
+            </tr>
+            <tr>
+                <td class= "UE">Gefahrenzone</td><td id = "VDGefahrenzone">...</td>
+            </tr>
+        </table>
+        <!--Neurologie-->
+        <table>
+            <h3>Neurologie</h3>
+            <tr>
+                <td class= "UE">Krampfgeschehen</td>
+                <td><input type= "checkbox" disabled readonly id = "VDKrampfgeschehen"/></td>
+            </tr>
+            <td class= "UE">Sprachstörung</td>
+            <td><input type= "checkbox" disabled readonly id = "VDSprachstoerung"/></td>
+            </tr>
+            <tr>
+                <td class= "UE">Puppille Links</td><td id = "VDPupilleLinks">...</td>
+            </tr>
+            <tr>
+                <td class= "UE">Pupille Rechts</td><td id = "VDPupilleRechts">...</td>
+            </tr>
+            <tr>
+                <td class= "UE">Schmerzbeurteilung</td><td id = "VDSchmerbeurteilung">...</td>
+            </tr>
+        </table>
+        <!--Kreislauf-->
+        <table>
+            <h3>Kreislauf</h3>
+            <tr>
+                <td class= "UE">Starke Blutung</td>
+                <td><input type= "checkbox" disabled readonly id = "VDStarkeblutung"/></td>
+            </tr>
+            <tr>
+                <td class = "UE">Arrythmie</td>
+                <td><input type= "checkbox" disabled readonly id = "VDArrythmie"/></td>
+            </tr>
+            <tr>
+                <td class = "UE">Schockzustand</td>
+                <td><input type= "checkbox" disabled readonly id = "VDSchockzustand"/></td>
+            </tr>
+            <tr>
+                <td class = "UE">Atemkreislaustillstand</td>
+                <td><input type= "checkbox" disabled readonly id = "VDAtemkreislaufstillstand"/></td>
+            </tr>
+            <tr>
+                <td class= "UE">Verbrennung</td><td id = "VDVerbrennung">...</td>
+            </tr>
+            <tr>
+                <td class= "UE">Erfrierung</td><td id = "VDErfrierung">...</td>
+            </tr>
+            <tr>
+                <td class= "UE">Verätzung</td><td><id = "VDVeraetzung">...</td>
+            </tr>
+        </table>
+        <!--Atemwege-->
+        <h3>Atemwege</h3>
+        <table>
+            <tr>
+                <td class= "UE">Atemwege unauffällig</td>
+                <td><input type= "checkbox" disabled readonly id = "VDAtemwegUnauf"/></td>
+            </tr>
+            <tr>
+                <td class= "UE">Atembeschwerden</td>
+                <td><input type= "checkbox" disabled readonly id = "VDAtembeschwerden"/></td>
+            </tr>
+            <tr>
+                <td class= "UE">Atemwegsverlegung</td>
+                <td><input type= "checkbox" disabled readonly id = "VDAtemverlegung"/></td>
+            </tr>
+            <tr>
+                <td class= "UE">Atemgeräusche</td>
+                <td><input type= "checkbox" disabled readonly id = "VDAtemger"/></td>
+            </tr>
+            <tr>
+                <td class= "UE">Asymetrische Brustkorbbewegung</td>
+                <td><input type= "checkbox" disabled readonly id = "VDAsybkBwg"/></td>
+            </tr>
+            <tr>
+                <td class= "UE">Hyperventilation</td>
+                <td><input type= "checkbox" disabled readonly id = "VDHyperventilation"/></td>
+            </tr>
+        </table>
+        <h3>Messungen</h3>
+        <table>
+            <tr>
+                <td class= "UE">Messung 1 AF</td><td id = "VDMEAF"> ... </td>
+            </tr>
+            <tr>
+                <td class= "UE">Messung 2 AF</td><td id = "VDMZAF">...</td>
+            </tr>
+            <tr>
+                <td class= "UE">Messung 1 Spo</td><td id = "VDMESPO">...</td>
+            </tr>
+            <tr>
+                <td class= "UE">Messung 2 Spo</td><td id = "VDMZSPO">...</td>
+            </tr>
+            <tr>
+                <td class= "UE">Messung 1 HF</td><td id = "VDMEHF">...</td>
+            </tr>
+            <tr>
+                <td class= "UE">Messung 2 HF</td><td id = "VDMZHF">...</td>
+            </tr>
+            <tr>
+                <td class= "UE">Messung 1 RR</td><td id = "VDMERR">...</td>
+            </tr>
+            <tr>
+                <td class= "UE">Messung 2 RR</td><td id = "VDMZRR">...</td>
+            </tr>
+            <tr>
+                <td class= "UE">Messung 1 BZ</td><td id = "VDMEBZ">...</td>
+            </tr>
+            <tr>
+                <td class= "UE">Messung 2 BZ</td><td id = "VDMZBZ">...</td>
+            </tr>
+            <tr>
+                <td class= "UE">Messung 1 Celsius</td><td id = "VDMEC">...</td>
+            </tr>
+            <tr>
+                <td class= "UE">Messung 2 Celsius</td><td id = "VDMZC">...</td>
+            </tr>
+        </table>
+    </div>
+
+    <!-- Maßnahmen-->
+    <div>
+        <h2> Maßnahmen</h2>
+        <table>
+            <tr>
+                <td class = "UE">Helmabnahme</td>
+                <td><input type= "checkbox" disabled readonly id = "MHelmabnahme"/></td>
+            </tr>
+            <tr>
+                <td class = "UE">Absaugung</td>
+                <td><input type= "checkbox" disabled readonly id = "MAbsaugung"/></td>
+            </tr>
+            <tr>
+                <td class = "UE">Esmachhandgriff</td>
+                <td><input type= "checkbox" disabled readonly id = "MEsmachhandgriff"/></td>
+            </tr>
+            <tr>
+                <td class = "UE">Güdeltubus</td>
+                <td><input type= "checkbox" disabled readonly id = "MGuetltubus"/></td>
+            </tr>
+            <tr>
+                <td class = "UE">Larynixtubus</td>
+                <td><input type= "checkbox" disabled readonly id = "MLarynixtubus"/></td>
+            </tr>
+            <tr>
+                <td class = "UE">Beatmung</td>
+                <td><input type= "checkbox" disabled readonly id = "MBeatmun"/></td>
+            </tr>
+            <tr>
+                <td class = "UE">Rückatmung</td>
+                <td><input type= "checkbox" disabled readonly id = "MRueckatmung"/></td>
+            </tr>
+            <tr>
+                <td class= "UE">Sauerstoffgabe</td><td id = "MSauerstoffgabe">...</td>
+            </tr>
+            <tr>
+                <td class= "UE">Heimlichmanöver</td><td id = "MHeimlich">...</td>
+            </tr>
+            <tr>
+                <td class= "UE">EKG</td><td id = "MEKG">...</td>
+            </tr>
+            <tr>
+                <td class= "UE">Infusion</td><td id = "MInfusion">...</td>
+            </tr>
+            <tr>
+                <td class= "UE">Herzdruckmassage</td><td id = "MHerDruck">...</td>
+            </tr>
+            <tr>
+                <td class = "UE">Defibrillator</td>
+                <td><input type= "checkbox" disabled readonly id = "MDefi"/></td>
+            </tr>
+            <tr>
+                <td class= "UE">Defianzahl</td><td id = "MDefianzahl">...</td>
+            </tr>
+            <tr>
+                <td class = "UE">Blutstillung</td>
+                <td><input type= "checkbox" disabled readonly id = "MBlutstillung"/></td>
+            </tr>
+            <tr>
+                <td class= "UE">Kreislauf Sonstige</td><td id = "MKreislaufSonst">...</td>
+            </tr>
+            <tr>
+                <td class = "UE">Rautegriff</td>
+                <td><input type= "checkbox" disabled readonly id = "MRauteGriff"/></td>
+            </tr>
+            <tr>
+                <td class = "UE">Rettungstuch</td>
+                <td><input type= "checkbox" disabled readonly id = "MRettungstuch"/></td>
+            </tr>
+            <tr>
+                <td class = "UE">Schaufeltrage</td>
+                <td><input type= "checkbox" disabled readonly id = "MSchaufeltrage"/></td>
+            </tr>
+            <tr>
+                <td class = "UE">Spineboad</td>
+                <td><input type= "checkbox" disabled readonly id = "MSpinboad"/></td>
+            </tr>
+            <tr>
+                <td class = "UE">HWS Schienung</td>
+                <td><input type= "checkbox" disabled readonly id = "MHwsSchinung"/></td>
+            </tr>
+            <tr>
+                <td class = "UE">Extrimitätenschinung</td>
+                <td><input type= "checkbox" disabled readonly id = "MExtremitaetenschinung"/></td>
+            </tr>
+            <tr>
+                <td class = "UE">Vakuummatraze</td>
+                <td><input type= "checkbox" disabled readonly id = "MVakuummatraze"/></td>
+            </tr>
+            <tr>
+                <td class = "UE">Rettungskorsett</td>
+                <td><input type= "checkbox" disabled readonly id = "MRettungskorsett"/></td>
+            </tr>
+            <tr>
+                <td class = "UE">Arzt anwesend</td>
+                <td><input type= "checkbox" disabled readonly id = "MArztanwesend"/></td>
+            </tr>
+            <tr>
+                <td class = "UE">Amputation</td>
+                <td><input type= "checkbox" disabled readonly id = "MAmputation"/></td>
+            </tr>
+            <tr>
+                <td class = "UE">Amputationstext</td><td id = "MAmputationstext">...</td>
+            </tr>
+            <tr>
+                <td class = "UE">Augenspülung</td>
+                <td><input type= "checkbox" disabled readonly id = "MAugenspuelung"/></td>
+            </tr>
+            <tr>
+                <td class = "UE">Entbindung</td>
+                <td><input type= "checkbox" disabled readonly id = "MEntbindung"/></td>
+            </tr>
+            <tr>
+                <td class = "UE">Maßnahmen sonstige</td><td id = "MSonstige">...</td>
+            </tr>
+            <tr>
+                <td class = "UE">Arztname</td><td id = "MArztname">...</td>
+            </tr>
+            <tr>
+                <td class = "UE">Venenzugang</td><td id = "MVenenzugang">...</td>
+            </tr>
+            <tr>
+                <td class = "UE">Medikamentenapplikation</td><td id = "MMedApplikation">...</td>
+            </tr>
+        </table>
+    </div>
+</div>
+<div></div>
+</body>
+<script>
+    if (window.XMLHttpRequest)
+    {
+        xmlhttp=new XMLHttpRequest();
+    }
+    xmlhttp.onreadystatechange=function()
+    {
+        if (xmlhttp.readyState==4 && xmlhttp.status==200)
+        {
+            var uebergabe = xmlhttp.responseText;
+            var fields = JSON.parse(uebergabe);
+            //anzeigenDerThemen(themennamen);
+            alert(fields);
+        }
+    }
+    xmlhttp.open("GET","phpscripts\\loadCase.php",true);
+    xmlhttp.send();
+</script>
+</html>
