@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>EPA</title>
+</head>
+<body>
+<ul class="menu">
+    <li><a href="RollC.html">Abgeschlossene Fälle</a></li>
+    <li><a href="RollA.html">Aktuelle Fälle</a></li>
+    <li><a href="RollE.html">Benutzerverwaltung</a></li>
+    <li><a href="phpscripts/logout.php">logout</a></li>
+</ul>
+<div id="container_case">
+    <h1>Abgeschlossene Fälle</h1>
+    <table id="table">
+        <tr>
+            <th>von</th>
+            <th>bis</th>
+            <th>Vorgeschehen</th>
+            <th>Verdachtsdiagnose</th>
+            <th>RTW</th>
+            <th>Anwesender Arzt</th>
+
+            <th></th>
+
+        </tr>
+    </table>
+</div>
+<script>
+    //geschlossene Fälle
+    var caseid_selected = 0;
+    tableload();
+    function loadCase(number){
+        if (window.XMLHttpRequest)
+        {
+            xmlhttp=new XMLHttpRequest();
+        }
+        xmlhttp.onreadystatechange=function()
+        {
+            if (xmlhttp.readyState==4 && xmlhttp.status==200)
+            {
+                //var uebergabe = xmlhttp.responseText;
+                //var fields = JSON.parse(uebergabe);
+                window.location.replace("RollB.html");
+            }
+        }
+        xmlhttp.open("GET","phpscripts\\sessionOldCase.php?idnumber="+number.toString(),true);
+        xmlhttp.send();
+    }
+    function tableload(){
+
+        if (window.XMLHttpRequest)
+        {
+            xmlhttp=new XMLHttpRequest();
+        }
+        xmlhttp.onreadystatechange=function()
+        {
+            if (xmlhttp.readyState==4 && xmlhttp.status==200)
+            {
+                var uebergabe = xmlhttp.responseText;
+
+
+                var fields = JSON.parse(uebergabe);
+
+                //anzeigenDerThemen(themennamen);
+                alert(fields);
+                showFields(fields);
+            }
+        }
+        xmlhttp.open("GET","phpscripts\\loadOldCases.php",true);
+        xmlhttp.send();
+    }
+    function getArrayReady(data){
+        for (i = 0;i<data.length;i++) {
+            if (data[i].beginnzeit === null){
+                data[i].beginnzeit = "Kein Eintrag";
+            }
+            if (data[i].timeEnd === null){
+                data[i].timeEnd = "Kein Eintrag";
+            }
+            if (data[i].vorgeschehen === null){
+                data[i].vorgeschehen = "Kein Eintrag";
+            }
+            if (data[i].verdachtsdiagnose === null){
+                data[i].verdachtsdiagnose = "Kein Eintrag";
+            }
+            if (data[i].doctor === null){
+                data[i].doctor = "Kein Eintrag";
+            }
+        }
+    }
+    function showFields(data){
+        getArrayReady(data);
+        for (i = 0;i<data.length;i++) {
+            var tr = document.createElement('tr');
+            tr.id = "tr"+data[i].toString();
+            var tdBeginTime = document.createElement('td');
+            tdBeginTime.textContent = data[i].beginnzeit.toString();
+            var tdrecord = document.createElement('td');
+            tdrecord.textContent = data[i].vorgeschehen.toString();
+            var tdDiagnose = document.createElement('td');
+            tdDiagnose.textContent = data[i].verdachtsdiagnose.toString();
+            var tdRTW = document.createElement('td');
+            tdRTW.textContent = data[i].rtw.toString() + " " + data[i].rtwNr.toString();
+
+            var tdDoctor = document.createElement('td');
+            tdDoctor.textContent = data[i].doctor.toString();
+            var tdTimeEnd = document.createElement('td');
+            tdTimeEnd.textContent = data[i].timeEnd.toString();
+            var tdButton = document.createElement('BUTTON');
+            tdButton.textContent = "anschauen";
+            tdButton.id = data[i].id.toString();
+            tdButton.addEventListener("click",Buttonsclick)
+
+            if (i === 0) {
+                document.getElementById('table').appendChild(tr);
+            } else {
+                //document.getElementById("tr"+data[i-1].toString()).appendChild(tr);
+                document.getElementById('table').appendChild(tr);
+            }
+            document.getElementById('table').appendChild(tdBeginTime);
+            document.getElementById('table').appendChild(tdTimeEnd);
+            document.getElementById('table').appendChild(tdrecord);
+            document.getElementById('table').appendChild(tdDiagnose);
+            document.getElementById('table').appendChild(tdRTW);
+            document.getElementById('table').appendChild(tdDoctor);
+            document.getElementById('table').appendChild(tdButton);
+
+
+
+
+        }
+        function Buttonsclick(nummer){
+            alert(this.id.toString());
+
+            caseid_selected = this.id;
+            loadCase(caseid_selected);
+        }
+
+
+    }
+</script>
+
+</body>
+</html>
